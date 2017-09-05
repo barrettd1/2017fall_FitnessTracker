@@ -1,3 +1,5 @@
+###Web Programming: Introduce Yourself
+
 ![Danyelle Barrett](https://scontent.fewr1-3.fna.fbcdn.net/v/t1.0-9/12472736_1518370175136518_5845334074427613761_n.jpg?oh=6725986528cf237617bcd97ee4bb218f&oe=5A1381B3)
 
 Hi, I am Danyelle Barrett and I’m a senior majoring in Computer Science. The courses I have taken so far in regards to computing are CS 1, 2, & 3, Assembly Language and Computer Architecture, Object- Oriented Programming, Language Processing, Discrete Mathematics for Computing, and Digital Logic Design. This semester, along with Web Programming, I will be taking Software Engineering, Operating Systems, and Microprocessor System Design. I did not know much about Computer Science before beginning my major, but I have learned so much in my time here. The language I am most familiar with is Java. I also have experience with C/C++ and Assembly Language. I recently taught myself HTML5 and CSS for this course through CodeAcademy and several other tutorials, and this summer I also began a tutorial package online to learn Python. I own a MacBook Pro, so I have experience working with both Mac OS and Windows. 

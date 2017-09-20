@@ -1,0 +1,20 @@
+{
+  "name": "2017fall_fitnesstracker",
+  "version": "1.0.0",
+  "description": "Fitness Tracker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/barrettd1/2017fall_FitnessTracker.git"
+  },
+  "dependencies": {
+    "express": "^4.15.4",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.7.0"
+  }
+}

@@ -2,9 +2,13 @@ import * as $ from 'jquery';
 
 export class Exercise{
     text: string
+
+    constructor(text:string) {
+        this.text = text;
+    }
 }
 
-export class User{
+/*export class User{
     name: string = "Danyelle Barrett";
     myExercises: Exercise[] = [];
 
@@ -14,15 +18,15 @@ export class User{
         )
     }
 }
+*/
 
-export class Page{
-    member: User;
+export class Recorder{
     exercises: Exercise[] = [];
     myExercises: Exercise[] = [];
 
     drawExercises(){
         $("#exercises").html(
-            this.exercises.map(x => `<li class="list-group-item">${x.text}</li>`).join("")
+            this.exercises.map(x => `<button class="list-group-item" id="cmd-add">${x.text}</button>`).join("")
         )
     }
 
@@ -31,35 +35,34 @@ export class Page{
             this.myExercises.map(x => `<li class="list-group-item">${x.text}</li>`).join("")
         )
     }
-}
 
-export class Game{
-    member: User;
-    exercises: Exercise[] = [
-        { text: "Jog"},
-        { text: "Lift Weights"},
-        { text: "Eliptical"},
-        { text: "Bicycle"},
-        { text: "Push Ups"},
-        { text: "Yoga"},
-        { text: "Aerobics Class"},
-        { text: "Swimming"},
-        { text: "Sports Game"},
-        { text: "Hiking"}
-    ];
+    init(){
+        return $.when(
+            $.getJSON("/recorder/exercises").done( data => {
+                this.exercises = data;
+            })
+        );
+    }
 }
 
 //Controller
+const recorder = new Recorder();
+let empty:boolean = true;
 
-const game = new Game();
-const page = new Page();
-const me = new User();
+recorder.init().done(() => {
+    recorder.drawExercises();
 
-let i = 0;
-page.exercises = game.exercises;
-page.drawExercises();
-page.drawMyExercises();
-
-me.myExercises = game.exercises;
-me.drawMyExercises();
+    $('.list-group-item').click(function(e) {
+        e.preventDefault();
+        const workoutName = e.target.textContent;
+        if(empty) {
+            document.getElementById('default-message').remove();
+            empty = false;
+        }
+        const newExercise = new Exercise(workoutName);
+        recorder.myExercises.push(newExercise);
+        console.log(recorder.myExercises);
+        recorder.drawMyExercises();
+    });
+});
 

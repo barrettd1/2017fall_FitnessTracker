@@ -14,3 +14,7 @@ $(function(){
             .animate({'flex-basis': '100%'})
     })
 });
+$(function () {
+    $("#footer-placeholder").load("_footer.html", function () {
+    });
+});

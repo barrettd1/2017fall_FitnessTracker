@@ -1,8 +1,8 @@
 @import "~bootstrap/scss/bootstrap";
-$primary-background: #8B8B8F;
+$primary-background: rgba(178, 178, 184, 0.88);
 $monospace: "Courier New", Courier, monospace;
 
-header{
+header, footer{
     background: $primary-background;
     margin-bottom: 10px;
 }
@@ -14,4 +14,8 @@ header{
     h4 {
     text-align: center;
     }
+}
+
+.exercises:hover{
+    background-color: #889;  
 }

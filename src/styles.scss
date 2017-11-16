@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap";
+$primary-background: rgba(178, 178, 184, 0.88);
+$monospace: "Courier New", Courier, monospace;
+
+header, footer{
+    background: $primary-background;
+    margin-bottom: 10px;
+}
+
+.card {
+    .btn-primary {
+        font-family: monospace;
+    }
+    h4 {
+    text-align: center;
+    }
+}
+
+.exercises:hover{
+    background-color: #889;  
+}

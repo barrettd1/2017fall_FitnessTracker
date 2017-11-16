@@ -1,0 +1,50 @@
+<div class = "container">
+  <div class ="jumbotron">
+      <h3>My Goals</h3>
+      <p>Here you can keep track of your personal goals and 
+          check them off when you complete them! It is the 
+          perfect way to stay motivated and on track so 
+          that you can succeed in your personal health!
+      </p>
+  </div>
+
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModalLong">
+       Create New Goal
+  </button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+  <div class="modal-content">
+      <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLongTitle">New Goal</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+      <div class="modal-body">
+          <form>
+              <div class="form-group">
+                <label class="col-form-label" for="formGroupExampleInput">Title</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example: Do More Abs">
+              </div>
+              <div class="form-group">
+                <label class="col-form-label" for="formGroupExampleInput2">Date</label>
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="xx/xx/xx">
+              </div>
+              <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Goal Information</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+            </form>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary">Save</button>
+      </div>
+  </div>
+  </div>
+</div>
+
+</div>

@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">TFT</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" id="home-link" routerLink="/index">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="aboutus-link" routerLink="/about">About Us</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Services
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" id="goals-link" routerLink="/goals">Goals</a>
+          <a class="dropdown-item" id="exercise-link" routerLink="/exercise">Exercise Log</a>
+          <a class="dropdown-item" id="food-link" routerLink="/food">Food Log</a>
+          <a class="dropdown-item" id="progress-link" href="#">View Progress</a>
+        </div>
+      </li>         
+    </ul>
+    <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+              <li class="nav-item">
+                  <a class="nav-link" id="signup-link" routerLink="/signup">Sign Up <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                      <a class="nav-link" id="login-link" routerLink="/login">Log In</a>
+              </li>
+    </ul>
+  </div>
+</nav>

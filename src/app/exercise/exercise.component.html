@@ -1,28 +1,43 @@
 <div class = "container">
-  <h3>Record Exercise</h3>
-  <div class="row">
-      <div class="col-md-6">
-              <div class="card" >
+  
+      
+    <h3>Record Exercise</h3>
+    <p>Click on an available exercise to add it to the list of completed exercises.</p>
+    <div class ="row">
+        <div class="col-md-6">
+            <div class="card" >
                   <div class="card-header">
                       Available Exercises
                  </div>
-                  <div class="card-body">
-                      <ul class="list-group list-group-flush" id="exercises">
-                      </ul>
-                  </div>
-              </div>
-              <!--<a href="#" class="btn btn-primary" id="cmd-flip">Submit Exercise</a>-->
+                 <ul class="list-group list-group-flush" id="exercises">
+                    <li *ngFor="let x of recorder.availableExercises; index as i" 
+                            class="list-group-item"
+                            (click)="submitExercise($event, x, i)">
+                            {{x.text}}
+                    </li>
+                </ul>
+            </div>
+            <h6>Don't see your exercise? Enter it here.</h6>
+            <div class="row">
+               <input type="text"> 
+               <button class = "btn btn-primary" (click)="submitExercise($event, x, i)" >Submit</button>
+            </div>
+            
       </div>
 
       <div class="col-md-6">
           <div class="card" >  
                   <div class="card-header">
-                          My Completed Exercises
+                        Completed Exercises
                   </div>       
                   <ul class="list-group list-group-flush" id="my-exercises">
-                          <li class="list-group-item" id="default-message">No Completed Exercises Yet!</li>
+                     <li *ngFor="let x of recorder.exercises; index as i" 
+                        class="list-group-item d-flex justify-content-between align-items-center">
+                            {{x.text}}
+                        <span class="badge badge-info">{{x.user}}</span>
+                     </li>
                   </ul>
           </div>
       </div>        
-  </div>
+
 </div>

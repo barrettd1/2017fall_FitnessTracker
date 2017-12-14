@@ -1,47 +1,102 @@
 <div class = "container">
-  <h3>Food Intake</h3>
-  <div class="row">
-      <div class="col-md-10">
-      <table class="table table-hover">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">Food Name</th>
-              <th scope="col">Calories</th>
-              <th scope="col">Fat</th>
-              <th scope="col">Carbs</th>
-              <th scope="col">Protein</th>
-              <th scope="col">Date</th>
-              <th scope="col">Time</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td scope="row">Apple</td>
-              <td>15</td>
-              <td>15</td>
-              <td>15</td>
-              <td>15</td>
-              <td>10/24/17</td>
-              <td>9:15</td>
-            </tr>
-            <tr>
-              <td scope="row">Sandwich</td>
-              <td>10</td>
-              <td>10</td>
-              <td>10</td>
-              <td>10</td>
-              <td>10/24/17</td>
-              <td>1:05</td>
-            </tr>
-            <tr>
-              <td scope="row">Salad</td>
-              <td>25</td>
-              <td>25</td>
-              <td>25</td>
-              <td>25</td>
-              <td>10/25/17</td>
-              <td>12:15</td>
-            </tr>
+    <h3>Food Intake
+        <button class="btn btn-primary btn-sm" (click)="edit()">Edit</button>
+        <button class="btn btn-primary btn-sm" *ngIf="editor"(click)="done()">Done</button>
+    </h3>
+    <div class="row">
+        <div class="col-md-10">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+              <tr>
+                  <th scope="col">Food Name</th>
+                  <th scope="col">Calories</th>
+                  <th scope="col">Fat</th>
+                  <th scope="col">Carbs</th>
+                  <th scope="col">Protein</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td scope="row">Apple</td>
+                  <td>15</td>
+                  <td>15</td>
+                  <td>15</td>
+                  <td>15</td>
+                  <td>10/24/17</td>
+                  <td>9:15</td>
+                  <button class="btn btn-outline-primary btn-sm" *ngIf="editor" (click)="delete()">Delete</button>
+              </tr>
+              <tr>
+                  <td scope="row">Sandwich</td>
+                  <td>10</td>
+                  <td>10</td>
+                  <td>10</td>
+                  <td>10</td>
+                  <td>10/24/17</td>
+                  <td>1:05</td>
+                  <button class="btn btn-outline-primary btn-sm" *ngIf="editor" (click)="delete()">Delete</button>
+              </tr>
+              <tr>
+                  <td scope="row">Salad</td>
+                  <td>25</td>
+                  <td>25</td>
+                  <td>25</td>
+                  <td>25</td>
+                  <td>10/25/17</td>
+                  <td>12:15</td>
+                  <button class="btn btn-outline-primary btn-sm" *ngIf="editor" (click)="delete()">Delete</button>
+              </tr>
+              <tr *ngFor="let x of recorder.foods; index as i">
+                  <td scope="row" *ngIf="foodCreated" > {{ foodName }} </td>
+                  <td *ngIf="foodCreated" > {{ calories }} </td>
+                  <td *ngIf="foodCreated" > {{ fat }} </td>
+                  <td *ngIf="foodCreated" > {{ carbs }} </td>
+                  <td *ngIf="foodCreated" > {{ protein }} </td>
+                  <td *ngIf="foodCreated" > {{ date }} </td>
+                  <td *ngIf="foodCreated" > {{ time }} </td>
+                  <button class="btn btn-outline-primary btn-sm" *ngIf="editor" (click)="delete()">Delete</button>
+              </tr>
+
           </tbody>
         </table>
-      </div>
+
+        <h3>Add New Food Entry</h3>
+        <div class="row">
+          <div class="col-md-3">
+            <label>Food Name</label>
+            <!-- <input type="text" class="form-control" (input)="onAddFood($event)"> -->
+            <input type="text" class="form-control" [(ngModel)]="foodName" >
+          </div>  
+            <div class="col-md-1">
+                <label>Calories</label>
+                <input type="text" class="form-control" [(ngModel)]="calories" >
+            </div>
+            <div class="col-md-1">
+                <label>Fat</label>
+                <input type="text" class="form-control" [(ngModel)]="fat" >
+            </div>    
+            <div class="col-md-1">
+                <label>Carbs</label>
+                <input type="text" class="form-control" [(ngModel)]="carbs" >
+            </div>  
+            <div class="col-md-1">
+                <label>Protein</label>
+                <input type="text" class="form-control" [(ngModel)]="protein" >
+            </div>   
+            <div class="col-md-2">
+                <label>Date</label>
+                <input type="text" class="form-control" [(ngModel)]="date" >
+            </div>   
+            <div class="col-md-2">
+                <label>Time</label>
+                <input type="text" class="form-control" [(ngModel)]="time" >
+            </div>
+                
+        </div>
+      
+        <button class = "btn btn-primary" [disabled]="!allowNewFood" (click)="onCreateFood()">Add Food</button>
+        </div>
+    </div>
+</div>

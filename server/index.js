@@ -16,7 +16,7 @@ server.use(function(req, res, next) {
 
 server.use("/client", express.static("./jquery-mockup"))
 server.use("/old", handler.main);
-server.use("/recorder", exerciseController.router);
+server.use("/exercise", exerciseController.router);
 
 server.listen(3001);
 

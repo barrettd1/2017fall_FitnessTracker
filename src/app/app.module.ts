@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from "@angular/router";
+import { FormsModule } from "@angular/forms";
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -13,6 +15,9 @@ import { LoginComponent } from './login/login.component';
 import { GoalsComponent } from './goals/goals.component';
 import { FoodComponent } from './food/food.component';
 import { AboutComponent } from './about/about.component';
+import { ExerciseService } from './models/exercise.service';
+import { MainComponent } from './main/main.component';
+
 
 @NgModule({
   declarations: [
@@ -26,10 +31,12 @@ import { AboutComponent } from './about/about.component';
     LoginComponent,
     GoalsComponent,
     FoodComponent,
-    AboutComponent
+    AboutComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
+    HttpModule, FormsModule,
     RouterModule.forRoot([
       { path: "exercise", component: ExerciseComponent},
       { path: "home", component: IndexComponent},
@@ -38,10 +45,11 @@ import { AboutComponent } from './about/about.component';
       { path: "about", component: AboutComponent},
       { path: "food", component: FoodComponent},
       { path: "goals", component: GoalsComponent},
+      { path: "main", component: MainComponent},
       { path: "", pathMatch: "full", redirectTo: "/home"}
     ])
   ],
-  providers: [],
+  providers: [ExerciseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

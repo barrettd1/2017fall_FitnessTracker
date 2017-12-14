@@ -1,4 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Http } from "@angular/http";
+import { Recorder, User, Goal} from '../models/exercise';
+import { ExerciseService } from '../models/exercise.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-goals',
@@ -8,9 +12,67 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class GoalsComponent implements OnInit {
 
-  constructor() { }
+  recorder = new Recorder();
+  me = new User();
+
+  goal="";
+  goals=["goal1", "goal2"];
+  goalCreated=false;
+  allowNewGoal=false;
+  editor = false;
+  create=false;
+
+  constructor(private http: Http, public exercise: ExerciseService, private router: Router) {
+    setTimeout(() => {
+      this.allowNewGoal = true;
+    }, 2000);
+   }
+
+   update(){
+    this.http.get(this.exercise.apiRoot +  "/exercise/recorder").subscribe( data => {
+        this.recorder = data.json();
+    });
+  }
 
   ngOnInit() {
+    if(this.exercise.me == null){
+      this.router.navigate(['/login']);
+    }
+    this.me = this.exercise.me;
+    setInterval(() => this.update(), 1000)
+  }
+
+  addGoal(goal:string){
+    this.goalCreated = true;
+    this.goals.push(goal);
+    this.create=false;
+  }
+
+    submitGoal(e: MouseEvent, goal: Goal, i: number){
+      e.preventDefault();
+      const data = { text: goal.text };
+      this.http.post(this.exercise.apiRoot + "/exercise/recorder/goals", data).subscribe(res => {
+      });    
+  }
+
+  deleteGoal(goal:string){
+    for(let i =0; i < this.goals.length; i++){
+      if(this.goals[i] == goal){
+        this.goals.splice(i,1);
+      }
+    }
+  }
+
+  edit(){
+    this.editor=true;
+  }
+
+  done(){
+    this.editor=false;
+  }
+
+  createGoal(){
+    this.create=true;
   }
 
 }

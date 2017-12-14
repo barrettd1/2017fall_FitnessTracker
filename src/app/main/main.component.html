@@ -1,0 +1,63 @@
+<div class = "container">
+  <div class="row">
+    <div class="col-md-8">
+      <h3>WELCOME</h3>
+      <p> Thanks for logging in. Here on the main page you can see all of the users logged in
+          and easily navigate to all of our services. Enjoy!
+      </p>
+    </div>
+    <div class="col-md-4">
+        <div class="card" >
+            <div class="card-header">
+                Active Users:
+            </div>
+                <ul class="list-group list-group-flush" id="users">
+                   <li *ngFor="let x of recorder.users; index as i" class="list-group-item d-flex justify-content-between align-items-center">
+                    <img [src]="x.picture" style="width: 26px;" class="rounded"/>   
+                    {{x.name}}
+                   </li>
+                </ul>
+        </div>
+    </div>
+  </div>
+    
+
+    <div class="row">
+       <div class="col-md-4">
+            <div class="card" >
+                <img class="card-img-top" src="assets/img/g.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h4 class="card-title">GOALS</h4>
+                    <p class="card-text">Click here to keep track of your fitness and exercise goals.</p>
+                    <a routerLink="/goals" class="btn btn-primary">Go</a>
+                </div>
+             </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card" >
+                <img class="card-img-top" src="assets/img/f.jpg" alt="Card image cap">
+                <div class="card-body">
+                      <h4 class="card-title">FOOD LOG</h4>
+                      <p class="card-text">Click here to keep track of your daily food intake and see your progress.</p>
+                      <a routerLink="/food" class="btn btn-primary">Go</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+              <div class="card" >
+                  <img class="card-img-top" src="assets/img/e.jpeg" alt="Card image cap">
+                  <div class="card-body">
+                      <h4 class="card-title">EXERCISE LOG</h4>
+                        <p class="card-text">Click here to keep track of your daily physical fitness 
+                          routines and exercises and see your progress.
+                        </p>
+                       <a routerLink="/exercise" class="btn btn-primary">Go</a>
+                  </div>
+              </div>
+        </div>
+
+       
+    </div>
+</div>

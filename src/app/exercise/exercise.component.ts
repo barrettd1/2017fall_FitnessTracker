@@ -1,38 +1,41 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Exercise, User, Recorder} from '../models/exercise';
+import { Http } from "@angular/http";
+import { Recorder, User, Exercise} from '../models/exercise';
+import { ExerciseService } from '../models/exercise.service';
+import { Router } from '@angular/router';
 
-import * as $ from 'jquery';
+declare const FB: any;
 
 @Component({
   selector: 'app-exercise',
   templateUrl: './exercise.component.html',
-  styleUrls: ['./exercise.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./exercise.component.scss']
 })
 export class ExerciseComponent implements OnInit {
+  
+    recorder = new Recorder();
+    me = new User();
+  
+    constructor(private http: Http, public exercise: ExerciseService, private router: Router) { }
+  
+        ngOnInit() {
+            if(this.exercise.me == null){
+                this.router.navigate(['/login']);
+            }
+            this.me = this.exercise.me;
+            setInterval(() => this.update(), 1000)
+        }
 
-  apiRoot = "//localhost:3001"
+        update(){
+            this.http.get(this.exercise.apiRoot +  "/exercise/recorder").subscribe( data => {
+                this.recorder = data.json();
+            });
+        }
   
-      recorder = new Recorder();
-      me = new User();
-  
-      constructor() { }
-  
-      ngOnInit() {
-          setInterval(() => this.update(), 1000)
-          $.getJSON(this.apiRoot+ "/exercise/exercises").done( data => {
-            this.recorder.exercises = data;
-          })
-      }
-
-      update(){}
-  
-      submitExercise(e: MouseEvent, exercise: Exercise, i: number){
-          e.preventDefault();
-          const data = { text: exercise.text };
-          $.post(this.apiRoot + "/exercise/recorder/exercises", data);
-          this.me.exercises.splice(i, 1);
-      }
-  
-
+        submitExercise(e: MouseEvent, exercise: Exercise, i: number){
+            e.preventDefault();
+            const data = { text: exercise.text, user: this.me.name };
+            this.http.post(this.exercise.apiRoot + "/exercise/recorder/exercises", data).subscribe(res => {
+            });    
+        }    
 }

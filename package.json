@@ -7,6 +7,7 @@
     "sass": "node-sass jquery-mockup/src --output jquery-mockup/dist --watch",
     "webpack:main": "webpack jquery-mockup/src/main.js jquery-mockup/dist/bundle.js --optimize-minimize",
     "server": "nodemon --watch server server/index.js",
+    "ng:c9": "ng serve --public fitness-tracker-barrettd1-1.c9users.io:8080 --host $IP --port $PORT",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",

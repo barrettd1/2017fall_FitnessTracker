@@ -9,13 +9,14 @@ declare var FB: any;
 @Injectable()
 export class ExerciseService{
   
-    apiRoot = "//localhost:3001"
+    apiRoot: string;
 
     me: User;
     recorder: Recorder;
 
     constructor(private http: Http, private router: Router) { 
-        
+
+        this.apiRoot = '//${window.location.hostname}:8081'
         window.fbAsyncInit = function() {
         FB.init({
             appId      : '1582347268492344',

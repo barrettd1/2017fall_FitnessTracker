@@ -44,7 +44,6 @@ export class GoalsComponent implements OnInit {
 
   submitGoal(e: MouseEvent, goal: string){
       this.goalCreated = true;
-      this.goals.push(goal);
       this.create=false;
       e.preventDefault();
       const data = { text: goal, user: this.me.name };

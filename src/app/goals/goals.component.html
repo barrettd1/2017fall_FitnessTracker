@@ -1,8 +1,8 @@
 <div class = "container">
     <div class ="jumbotron">
         <h3>My Goals</h3>
-        <p>Here you can keep track of your personal goals and 
-            check them off when you complete them! It is the 
+        <p>Here you can keep track of your personal goals, as 
+            well as view your friends' goals! It is the 
             perfect way to stay motivated and on track so 
             that you can succeed in your personal health!
         </p>
@@ -31,6 +31,9 @@
                 <button class="btn btn-primary btn-sm" *ngIf="editor"(click)="done()">Done</button>
             </h4>
             <ul class="list-group list-group-flush" id="my-goals">
+                <li>Jog for 15 min every day.
+                    <span class="badge badge-info">Eli Manning</span>
+                </li>
                 <li *ngFor="let x of recorder.goals; index as i" 
                    class="list-group-item d-flex justify-content-between align-items-center">
                         {{ i+1 }}:   {{x.text}}

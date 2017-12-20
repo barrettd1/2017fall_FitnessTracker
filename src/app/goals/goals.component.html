@@ -19,22 +19,23 @@
                 <label>Enter Goal</label>
                 <input type="text" class="form-control" [(ngModel)]="goal" >
 
-                <button type="button" class="btn btn-primary" [disabled]="!allowNewGoal" (click)="addGoal()">
+                <button type="button" class="btn btn-primary" [disabled]="!allowNewGoal" (click)="submitGoal($event, goal)">
                         Add Goal
                 </button>
             </div>
         </div>
 
         <div clas="col-md-6">
-            <h4>My Goal List
+            <h4>Goal List
                 <button class="btn btn-primary btn-sm" (click)="edit()">Edit</button>
                 <button class="btn btn-primary btn-sm" *ngIf="editor"(click)="done()">Done</button>
             </h4>
-            <ul>
-                <li *ngFor="let g of goals; let i = index"> 
-                <input type="checkbox"> 
-                {{ i+1 }}: {{ goal }}
-                <button class="btn btn-outline-secondary btn-sm" *ngIf="editor" (click)="deleteGoal()">Delete</button>
+            <ul class="list-group list-group-flush" id="my-goals">
+                <li *ngFor="let x of recorder.goals; index as i" 
+                   class="list-group-item d-flex justify-content-between align-items-center">
+                        {{ i+1 }}:   {{x.text}}
+                    <span class="badge badge-info">{{x.user}}</span>
+                    <button class="btn btn-outline-secondary btn-sm" *ngIf="editor" (click)="deleteGoal()">Delete</button>
                 </li>
             </ul>
         </div>

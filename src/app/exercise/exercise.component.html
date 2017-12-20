@@ -12,15 +12,18 @@
                  <ul class="list-group list-group-flush" id="exercises">
                     <li *ngFor="let x of recorder.availableExercises; index as i" 
                             class="list-group-item"
-                            (click)="submitExercise($event, x, i)">
+                            (click)="submitExercise($event, x)">
                             {{x.text}}
                     </li>
                 </ul>
             </div>
             <h6>Don't see your exercise? Enter it here.</h6>
             <div class="row">
-               <input type="text"> 
-               <button class = "btn btn-primary" (click)="submitExercise($event, x, i)" >Submit</button>
+                <input type="text" class="form-control" [(ngModel)]="ex" >
+            
+                <button type="button" class="btn btn-primary" (click)="submitExercise2($event, ex)">
+                   Submit
+               </button>
             </div>
             
       </div>
@@ -28,7 +31,7 @@
       <div class="col-md-6">
           <div class="card" >  
                   <div class="card-header">
-                        Completed Exercises
+                        Completed Exercises Log
                   </div>       
                   <ul class="list-group list-group-flush" id="my-exercises">
                      <li *ngFor="let x of recorder.exercises; index as i" 

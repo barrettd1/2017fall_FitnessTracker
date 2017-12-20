@@ -42,15 +42,12 @@ export class GoalsComponent implements OnInit {
     setInterval(() => this.update(), 1000)
   }
 
-  addGoal(goal:string){
-    this.goalCreated = true;
-    this.goals.push(goal);
-    this.create=false;
-  }
-
-    submitGoal(e: MouseEvent, goal: Goal, i: number){
+  submitGoal(e: MouseEvent, goal: string){
+      this.goalCreated = true;
+      this.goals.push(goal);
+      this.create=false;
       e.preventDefault();
-      const data = { text: goal.text };
+      const data = { text: goal, user: this.me.name };
       this.http.post(this.exercise.apiRoot + "/exercise/recorder/goals", data).subscribe(res => {
       });    
   }

@@ -21,4 +21,4 @@ server.use("/exercise", exerciseController.router);
 
 server.listen(port);
 
-console.log('http://localhost:${port}');
+console.log(`http://localhost:${port}`);

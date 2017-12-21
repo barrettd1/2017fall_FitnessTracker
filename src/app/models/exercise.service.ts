@@ -16,7 +16,7 @@ export class ExerciseService{
 
     constructor(private http: Http, private router: Router) { 
 
-        this.apiRoot = '//${window.location.hostname}:8081'
+        this.apiRoot = `//${window.location.hostname}:8081`
         window.fbAsyncInit = function() {
         FB.init({
             appId      : '1582347268492344',

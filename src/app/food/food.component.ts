@@ -61,8 +61,11 @@ export class FoodComponent implements OnInit {
     this.editor=false;
   }
 
-  delete(){
-    
+  delete(e: MouseEvent){
+    e.preventDefault();
+    const data = { name: "bye", calories: "bye", fat:"bye", carbs: "bye", protein:"bye", date:"bye", time:"bye", user:this.me.name };
+    this.http.post(this.exercise.apiRoot + "/exercise/Recorder/deletedf", data).subscribe(res => {
+    });
   }
 
   submitFood(e: MouseEvent, name: String, calories: String, fat: String, carbs: String, protein: String, date: String, time: String){

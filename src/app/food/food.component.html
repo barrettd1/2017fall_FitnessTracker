@@ -1,8 +1,13 @@
 <div class = "container">
     <h3>Food Intake
-        <button class="btn btn-primary btn-sm" (click)="edit()">Edit</button>
-        <button class="btn btn-primary btn-sm" *ngIf="editor"(click)="done()">Done</button>
+        <button class="btn btn-primary btn-sm" (click)="edit()">Clear Log</button>
+        <button class="btn btn-danger btn-sm" *ngIf="editor" (click)="delete($event)">Delete Log</button>
+        <button class="btn btn-outline-primary btn-sm" *ngIf="editor"(click)="done()">Done</button>
     </h3>
+    <h6 *ngIf="editor">ARE YOU SURE? This will clear the log for everyone!!</h6>
+    <p>See the healthy foods everyone has been eating here! Create your own entry by 
+        filling in the form below.
+    </p>
     <div class="row">
         <div class="col-md-10">
         <table class="table table-hover">
@@ -18,30 +23,16 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                  <td scope="row">Apple</td>
-                  <td>15</td>
-                  <td>15</td>
-                  <td>15</td>
-                  <td>15</td>
-                  <td>10/24/17</td>
-                  <td>9:15</td>
-                  <span class="badge badge-info">Rachael Ray</span>
-                  <button class="btn btn-outline-primary btn-sm" *ngIf="editor" >Delete</button>
-              </tr>
-             
-              <tr *ngFor="let x of recorder.foods; index as i">
-                  <td scope="row"  > {{ x.name }} </td>
-                  <td> {{ x.calories }} </td>
-                  <td> {{ x.fat }} </td>
-                  <td> {{ x.carbs }} </td>
-                  <td> {{ x.protein }} </td>
-                  <td> {{ x.date }} </td>
-                  <td> {{ x.time }} </td>
-                  <span class="badge badge-info">{{x.user}}</span>
-                  <button class="btn btn-outline-primary btn-sm" *ngIf="editor" (click)="delete(x)">Delete</button>
-              </tr>
-
+                <tr *ngFor="let x of recorder.foods; index as i">
+                    <td scope="row"  > {{ x.name }} </td>
+                    <td> {{ x.calories }} </td>
+                    <td> {{ x.fat }} </td>
+                    <td> {{ x.carbs }} </td>
+                    <td> {{ x.protein }} </td>
+                    <td> {{ x.date }} </td>
+                    <td> {{ x.time }} </td>
+                    <span class="badge badge-info">{{x.user}}</span>
+                 </tr>
           </tbody>
         </table>
         

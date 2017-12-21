@@ -17,6 +17,7 @@ export class ExerciseComponent implements OnInit {
     me = new User();
 
     ex="";
+    editor = false;
   
     constructor(private http: Http, public exercise: ExerciseService, private router: Router) { }
   
@@ -34,6 +35,15 @@ export class ExerciseComponent implements OnInit {
             });
         }
   
+        edit(){
+            this.editor=true;
+        }
+        
+        done(){
+            this.editor=false;
+        }
+
+
         submitExercise(e: MouseEvent, exercise: Exercise){
             e.preventDefault();
             const data = { text: exercise.text, user: this.me.name };
@@ -46,5 +56,12 @@ export class ExerciseComponent implements OnInit {
             this.http.post(this.exercise.apiRoot + "/exercise/recorder/exercises", data).subscribe(res => {
             });    
         }  
+        deleteExercise(e:MouseEvent){
+            e.preventDefault();
+            const data = { text: "goodbye", user: this.me.name };
+            this.http.post(this.exercise.apiRoot + "/exercise/recorder/deletede", data).subscribe(res => {
+            });    
+        } 
+        
       
 }

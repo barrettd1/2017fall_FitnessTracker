@@ -51,12 +51,11 @@ export class GoalsComponent implements OnInit {
       });    
   }
 
-  deleteGoal(goal:string){
-    for(let i =0; i < this.goals.length; i++){
-      if(this.goals[i] == goal){
-        this.goals.splice(i,1);
-      }
-    }
+  delete(e: MouseEvent){
+      e.preventDefault();
+      const data = { text:"bye", user: this.me.name };
+      this.http.post(this.exercise.apiRoot + "/exercise/recorder/deletedg", data).subscribe(res => {
+      }); 
   }
 
   edit(){

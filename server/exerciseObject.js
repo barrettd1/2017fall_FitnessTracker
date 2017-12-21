@@ -14,8 +14,18 @@ const exercise = {
         users:[],
         availableExercises: exercises,
         exercises:[{text:"Baseball", user:"Derek Jeter"}],
-        goals:[],
-        foods:[]
+        goals:[{text:"Jog for 20 min every day", user:"Eli Manning"}],
+        foods:[{name:"Apple", 
+                calories: "10", 
+                fat: "3", 
+                carbs: "15", 
+                protein: "10", 
+                date: "12/19/17", 
+                time: "12:15", 
+                user: "Rachael Ray"}],
+        deletede:[],
+        deletedf:[],
+        deletedg:[]
    }
         
 }

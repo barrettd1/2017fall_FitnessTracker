@@ -2,7 +2,9 @@
   
       
     <h3>Record Exercise</h3>
-    <p>Click on an available exercise to add it to the list of completed exercises.</p>
+    <p>Click on an available exercise to add it to the list of completed exercises.
+        <br> If you don't see your exercise, enter it manually at the bottom of the page!
+    </p>
     <div class ="row">
         <div class="col-md-6">
             <div class="card" >
@@ -17,7 +19,7 @@
                     </li>
                 </ul>
             </div>
-            <h6>Don't see your exercise? Enter it here.</h6>
+            <h5>Don't see your exercise? Enter it here.</h5>
             <div class="row">
                 <input type="text" class="form-control" [(ngModel)]="ex" >
             
@@ -29,18 +31,21 @@
       </div>
 
       <div class="col-md-6">
+          <h6 *ngIf="editor">ARE YOU SURE? This will clear the log for everyone!!</h6>
           <div class="card" >  
-                  <div class="card-header">
-                        Completed Exercises Log
-                  </div>       
-                  <ul class="list-group list-group-flush" id="my-exercises">
-                     <li *ngFor="let x of recorder.exercises; index as i" 
+                <div class="card-header">
+                    Completed Exercises Log
+                    <button class="btn btn-primary btn-sm" (click)="edit()">Clear Log</button>
+                    <button class="btn btn-sm btn-danger" *ngIf="editor" (click)="deleteExercise($event)">Delete</button>
+                    <button class="btn btn-sm btn-outline-primary" *ngIf="editor" (click)="done()">Done</button>
+                </div>       
+                <ul class="list-group list-group-flush" id="my-exercises">
+                    <li *ngFor="let x of recorder.exercises; index as i" 
                         class="list-group-item d-flex justify-content-between align-items-center">
                             {{x.text}}
                         <span class="badge badge-info">{{x.user}}</span>
-                     </li>
-                  </ul>
+                    </li>
+                </ul>
           </div>
-      </div>        
-
+      </div>   
 </div>

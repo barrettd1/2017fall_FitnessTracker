@@ -39,5 +39,17 @@ router
     .post("/recorder/foods", (req, res) => {
         exercise.recorder.foods.push(req.body);
     })
+    .post("/recorder/deletede", (req, res) => {
+        exercise.recorder.deletede.push(req.body);
+        exercise.recorder.exercises=[];
+    })
+    .post("/recorder/deletedf", (req, res) => {
+        exercise.recorder.deletedf.push(req.body);
+        exercise.recorder.foods=[];
+    })
+    .post("/recorder/deletedg", (req, res) => {
+        exercise.recorder.deletedg.push(req.body);
+        exercise.recorder.goals=[];
+    })
 
 module.exports.router = router;

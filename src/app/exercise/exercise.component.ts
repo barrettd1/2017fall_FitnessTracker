@@ -80,7 +80,7 @@ export class ExerciseComponent implements OnInit {
           .debounceTime(200)
           .distinctUntilChanged()
           .map(term => term.length < 2 ? []
-            : exercises.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10));
+            : this.recorder.availableExercises.filter(v => v.text.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10).map(x=> x.text));
         
       
 }

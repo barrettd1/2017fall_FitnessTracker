@@ -3,7 +3,7 @@ const handler = require("./httpHandler.js");
 const exerciseController = require("./exerciseController");
 const bodyParser = require("body-parser");
 
-const port = 8081;
+const port = 8082;
 const server = express();
 
 server.use(bodyParser.urlencoded());

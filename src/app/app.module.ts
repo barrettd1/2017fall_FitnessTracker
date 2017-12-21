@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from '@angular/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -32,11 +33,11 @@ import { MainComponent } from './main/main.component';
     GoalsComponent,
     FoodComponent,
     AboutComponent,
-    MainComponent
+    MainComponent,
   ],
   imports: [
     BrowserModule,
-    HttpModule, FormsModule,
+    HttpModule, FormsModule, NgbModule.forRoot(),
     RouterModule.forRoot([
       { path: "exercise", component: ExerciseComponent},
       { path: "home", component: IndexComponent},

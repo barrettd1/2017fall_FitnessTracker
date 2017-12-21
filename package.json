@@ -20,11 +20,6 @@
     "url": "git+https://github.com/barrettd1/2017fall_FitnessTracker.git"
   },
   "dependencies": {
-    "express": "^4.15.4",
-    "body-parser": "^1.18.2",
-    "jquery": "^3.2.1",
-    "bootstrap-4": "^4.0.0",
-    "popper.js": "^1.12.5",
     "@angular/animations": "^5.0.0",
     "@angular/common": "^5.0.0",
     "@angular/compiler": "^5.0.0",
@@ -34,7 +29,14 @@
     "@angular/platform-browser": "^5.0.0",
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@angular/router": "^5.0.0",
+    "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.8",
+    "body-parser": "^1.18.2",
+    "bootstrap-4": "^4.0.0",
     "core-js": "^2.4.1",
+    "express": "^4.15.4",
+    "jquery": "^3.2.1",
+    "ng2-typeahead": "^1.2.0",
+    "popper.js": "^1.12.5",
     "rxjs": "^5.5.2",
     "zone.js": "^0.8.14"
   },
@@ -51,7 +53,6 @@
     "style-loader": "^0.18.2",
     "ts-loader": "^2.3.7",
     "nodemon": "^1.12.1",
-
     "@angular/cli": "1.5.0",
     "@angular/compiler-cli": "^5.0.0",
     "@angular/language-service": "^5.0.0",
@@ -72,4 +73,3 @@
     "typescript": "~2.4.2"
   }
 }
-

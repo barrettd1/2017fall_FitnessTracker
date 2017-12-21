@@ -3,8 +3,20 @@ import { Http } from "@angular/http";
 import { Recorder, User, Exercise} from '../models/exercise';
 import { ExerciseService } from '../models/exercise.service';
 import { Router } from '@angular/router';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
+import {NgbTypeahead} from '@ng-bootstrap/ng-bootstrap';
+import {Observable} from 'rxjs/Observable';
+import {Subject} from 'rxjs/Subject';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/merge';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
 
 declare const FB: any;
+const exercises = ["Jog", "Swim", "Run", "Bicycle", "Lift Weights", "Push Ups", "Hiking", "Yoga", "Aerobics Class"
+                    , "Sports Game", "Elliptical", ]
 
 @Component({
   selector: 'app-exercise',
@@ -62,6 +74,13 @@ export class ExerciseComponent implements OnInit {
             this.http.post(this.exercise.apiRoot + "/exercise/recorder/deletede", data).subscribe(res => {
             });    
         } 
+
+        search = (text$: Observable<string>) =>
+        text$
+          .debounceTime(200)
+          .distinctUntilChanged()
+          .map(term => term.length < 2 ? []
+            : exercises.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10));
         
       
 }

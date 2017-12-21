@@ -2,15 +2,22 @@
   
       
     <h3>Record Exercise</h3>
-    <p>Click on an available exercise to add it to the list of completed exercises.
+    <p>     Use the quick search to quickly find the exercise you need, or
+        <br>click on an available exercise to add it to the list of completed exercises.
         <br> If you don't see your exercise, enter it manually at the bottom of the page!
     </p>
     <div class ="row">
         <div class="col-md-6">
+            <label for="exercises">Search for Exercises</label>
+            <input class="form-control" name="exercises" id="exercises" type="text" placeholder="Look for an exercise" [(ngModel)]="ex" [ngbTypeahead]="search"> 
+            <button type="button" class="btn btn-primary btn-sm" (click)="submitExercise2($event, ex)">
+                Submit
+            </button>
             <div class="card" >
                   <div class="card-header">
                       Available Exercises
                  </div>
+                 
                  <ul class="list-group list-group-flush" id="exercises">
                     <li *ngFor="let x of recorder.availableExercises; index as i" 
                             class="list-group-item"
